@@ -8,6 +8,7 @@ import { ChatListPage } from '../features/chats/ChatListPage';
 import { AdminDashboardPage } from '../features/admin/AdminDashboardPage';
 import { SettingsPage } from '../features/settings/SettingsPage';
 import { ProfilePage } from '../features/profile/ProfilePage';
+import { ContactsPage } from '../features/contacts/ContactsPage';
 
 export const AppRoutes: React.FC = () => {
   return (
@@ -20,6 +21,7 @@ export const AppRoutes: React.FC = () => {
       <Route path="/admin" element={<AdminDashboardPage />} />
       <Route path="/settings" element={<SettingsPage />} />
       <Route path="/profile" element={<ProfilePage />} />
+      <Route path="/contacts" element={<ContactsPage />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
