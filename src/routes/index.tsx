@@ -12,6 +12,7 @@ import { ContactsPage } from '../features/contacts/ContactsPage';
 import { GroupPage } from '../features/groups/GroupPage';
 import { NotificationCenter } from '../features/notifications/NotificationCenter';
 import { SecurityPage } from '../features/security/SecurityPage';
+import { OwnerDashboardPage } from '../features/owner/OwnerDashboardPage';
 
 export const AppRoutes: React.FC = () => {
   return (
@@ -28,6 +29,7 @@ export const AppRoutes: React.FC = () => {
       <Route path="/groups" element={<GroupPage />} />
       <Route path="/notifications" element={<NotificationCenter />} />
       <Route path="/security" element={<SecurityPage />} />
+      <Route path="/owner" element={<OwnerDashboardPage />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
