@@ -13,6 +13,7 @@ import { GroupPage } from '../features/groups/GroupPage';
 import { NotificationCenter } from '../features/notifications/NotificationCenter';
 import { SecurityPage } from '../features/security/SecurityPage';
 import { OwnerDashboardPage } from '../features/owner/OwnerDashboardPage';
+import { TestingDashboardPage } from '../features/testing/TestingDashboardPage';
 
 export const AppRoutes: React.FC = () => {
   return (
@@ -30,6 +31,7 @@ export const AppRoutes: React.FC = () => {
       <Route path="/notifications" element={<NotificationCenter />} />
       <Route path="/security" element={<SecurityPage />} />
       <Route path="/owner" element={<OwnerDashboardPage />} />
+      <Route path="/testing" element={<TestingDashboardPage />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
