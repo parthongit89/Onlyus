@@ -6,7 +6,7 @@ export interface User {
   id: string;
   username: string;
   displayName: string;
-  email?: string;
+  email: string;
   role: UserRole;
   status: UserStatus;
   avatarUrl?: string;
@@ -16,11 +16,31 @@ export interface User {
   createdAt: string;
 }
 
+export interface DeviceSession {
+  id: string;
+  userId: string;
+  deviceName: string;
+  ipAddress: string;
+  location?: string;
+  lastActive: string;
+  isCurrent: boolean;
+}
+
+export interface InviteToken {
+  code: string;
+  createdBy: string;
+  usedBy?: string;
+  isUsed: boolean;
+  expiresAt: string;
+}
+
 export interface AuthState {
   user: User | null;
   isAuthenticated: boolean;
   token: string | null;
   isLoading: boolean;
+  error: string | null;
+  activeSessions: DeviceSession[];
 }
 
 export interface ChatMessage {
