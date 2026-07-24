@@ -4,6 +4,7 @@ import { Avatar } from '../../shared/components/Avatar';
 import { Input } from '../../shared/components/Input';
 import { Button } from '../../shared/components/Button';
 import { ChatService } from './chatService';
+import { MediaSharingComponent } from '../media/MediaSharingComponent';
 import { Chat, ChatMessage } from '../../shared/types';
 
 export const ChatListPage: React.FC = () => {
@@ -265,13 +266,20 @@ export const ChatListPage: React.FC = () => {
             )}
 
             {/* Input Footer */}
-            <form onSubmit={handleSend} style={{ padding: '16px 24px', borderTop: '1px solid rgba(255, 255, 255, 0.08)', backgroundColor: '#16191e', display: 'flex', gap: '12px' }}>
-              <Input
-                placeholder="Type an end-to-end encrypted message..."
-                value={inputContent}
-                onChange={(e) => setInputContent(e.target.value)}
+            <form onSubmit={handleSend} style={{ padding: '16px 24px', borderTop: '1px solid rgba(255, 255, 255, 0.08)', backgroundColor: '#16191e', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              <MediaSharingComponent
+                onMediaSelect={(media) => {
+                  setInputContent((prev) => `${prev} [Attached ${media.mediaType}: ${media.fileName} (${media.fileSizeMb}MB)]`.trim());
+                }}
               />
-              <Button type="submit" size="md">Send</Button>
+              <div style={{ display: 'flex', gap: '12px' }}>
+                <Input
+                  placeholder="Type an end-to-end encrypted message or attach media..."
+                  value={inputContent}
+                  onChange={(e) => setInputContent(e.target.value)}
+                />
+                <Button type="submit" size="md">Send</Button>
+              </div>
             </form>
           </>
         ) : (
