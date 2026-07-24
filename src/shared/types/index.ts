@@ -32,6 +32,16 @@ export interface InviteToken {
   usedBy?: string;
   isUsed: boolean;
   expiresAt: string;
+  createdAt: string;
+}
+
+export interface AuditLog {
+  id: string;
+  action: 'LOGIN' | 'LOGOUT' | 'REGISTRATION' | 'ACCOUNT_APPROVED' | 'ACCOUNT_REJECTED' | 'USER_SUSPENDED' | 'GROUP_CREATED' | 'SECURITY_EVENT';
+  performedBy: string;
+  targetUser?: string;
+  details: string;
+  timestamp: string;
 }
 
 export interface AuthState {
